@@ -1,0 +1,11 @@
+messages:
+  access-denied: '&cAccess denied!'
+  console-only: '&cThis is only for use by console!'
+  prefix-set: '&6Prefix set to &e%prefix%'
+  suffix-set: '&6Suffix set to &e%suffix%'
+  invalid-player: '&cInvalid player!'
+  sent: '&6Message sent to &e%player%'
+  sent-global: '&6Message sent'
+  console-toggle: '&6Console only now set to &e%value%'
+  reloaded: '&eConfiguration reloaded'
+  help: '&ecc :prefix &6(prefix) &7- &6Sets the prefix for your messages%br%&ecc :suffix &6(suffix) &7- &6Sets the suffix for your messages%br%&ecc :console &7- &6Toggles console only restriction%br%&ecc &6(player) (msg) &7- &6Sends msg to player%br%&ecc * &6(msg) &7- &6Sends msg to all players'

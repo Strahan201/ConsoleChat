@@ -1,0 +1,8 @@
+name: ConsoleChat
+author: Strahan
+main: com.sylvcraft.ConsoleChat
+version: 1.0
+description: Sends chat from console /w a specified sender name
+commands:
+  cc:
+    description: Control command
