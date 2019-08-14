@@ -27,7 +27,7 @@ public class ConsoleChat extends JavaPlugin {
 			msg(sender, "console-only", data);
 			return true;
 		}
-		
+
 		if (args.length == 0) {
 			showHelp(sender, data);
 			return true;
@@ -135,12 +135,12 @@ public class ConsoleChat extends JavaPlugin {
 			break;
 			
 		default:
-			if (args.length < 2) {
+			if ((cmd.getName().equalsIgnoreCase("ccg") && args.length == 0) || (cmd.getName().equalsIgnoreCase("cc") && args.length < 2)) {
 				showHelp(sender, data);
 				return true;
 			}
 
-			sendMessage(sender, args);
+			sendMessage(sender, args, cmd.getName().toLowerCase());
 			break;
 		}
 		return true;
@@ -158,6 +158,8 @@ public class ConsoleChat extends JavaPlugin {
 		if (sender.hasPermission("consolechat.send.code")) { msg(sender, "help-send-player-code", data); helped++; }
 		if (sender.hasPermission("consolechat.send.global")) { msg(sender, "help-send-global", data); helped++; }
 		if (sender.hasPermission("consolechat.send.global.code")) { msg(sender, "help-send-global-code", data); helped++; }
+		if (sender.hasPermission("consolechat.send.global")) { msg(sender, "help-ccg", data); helped++; }
+		if (sender.hasPermission("consolechat.send.global.code")) { msg(sender, "help-ccg-code", data); helped++; }
 		if (helped == 0) msg(sender, "access-denied", data);
 	}
 
@@ -218,19 +220,19 @@ public class ConsoleChat extends JavaPlugin {
 		msg(sender, "prefix-set", data);
 	}
 	
-	public void sendMessage(CommandSender sender, String[] args) {
+	public void sendMessage(CommandSender sender, String[] args, String cmd) {
 		Map<String, String> data = new HashMap<String, String>();
 		String prefix = "", msg = "", recipient = "", suffix = getConfig().getString("config.suffix", "");
 		Boolean doGlobal = false; int msgStart = 0;
 		
-		if (args[0].equals("*")) {
+		if (args[0].equals("*") || cmd.equals("ccg")) {
 			doGlobal = true;
-			msgStart++;
+			if (!cmd.equals("ccg")) msgStart++;
 		} else {
 			recipient = args[0];
 			msgStart++;
 		}
-		
+
 		if (args[msgStart].length() >= 2 && args[msgStart].substring(0,1).equals(":") && !args[msgStart].substring(1,1).equals(":")) {
 			if ((doGlobal && !sender.hasPermission("consolechat.send.global.code")) || (!doGlobal && !sender.hasPermission("consolechat.send.code"))) {
 				msg(sender, "access-denied", data);

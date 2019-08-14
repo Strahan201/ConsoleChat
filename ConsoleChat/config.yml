@@ -30,3 +30,5 @@ messages:
   help-send-global-code: '&acc * &6(:code) (msg) &7- &eSends msg to all players using prefix code'
   help-reload: '&acc :reload &7- &eReloads config from disk'
   help-seeglobal: '&acc :seeglobal &7- &eToggles whether or not you see global messages you send'
+  help-ccg: '&accg &6(msg) &7- &eSends msg to all players'
+  help-ccg-code: '&accg &6(:code) (msg) &7- &eSends msg to all players using prefix code'

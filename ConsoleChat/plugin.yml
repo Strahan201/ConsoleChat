@@ -1,8 +1,10 @@
 name: ConsoleChat
 author: Strahan
 main: com.sylvcraft.ConsoleChat
-version: 1.5
+version: 1.6
 description: Sends chat from console /w a specified sender name
 commands:
   cc:
     description: Control command
+  ccg:
+    description: For sending global chat messages
